@@ -1,7 +1,13 @@
 body {
   font-family: 'DM Sans', sans-serif;
-  background-color: #BFBABA;
-  color: #1B1B1B;
+  overflow: hidden;
+  color: #f1f1f1;
+}
+
+#canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
 }
 
 button {
