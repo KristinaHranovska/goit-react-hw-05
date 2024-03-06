@@ -1,4 +1,4 @@
-import "../node_modules/modern-normalize/modern-normalize.css";
+import "../../node_modules/modern-normalize/modern-normalize.css";
 
 import { useEffect, useRef } from "react";
 import webGLFluidEnhanced from "webgl-fluid-enhanced";
