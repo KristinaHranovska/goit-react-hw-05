@@ -25,7 +25,7 @@ export const getFilmsDetails = async (id) => {
     }
     try {
         const respons = await axios.get(url, params);
-        return respons.data.results;
+        return respons.data;
     } catch (error) {
         console.log(error.message);
     }
