@@ -4,6 +4,9 @@ const MovieItem = ({
   dataFilm: { poster_path, title, release_date, vote_average },
 }) => {
   const formatDate = (date) => {
+    if (!date || isNaN(new Date(date))) {
+      return "Unknown date";
+    }
     return format(new Date(date), "MMMM dd yyyy");
   };
   const urlImg = `https://image.tmdb.org/t/p/w500/${poster_path}`;
