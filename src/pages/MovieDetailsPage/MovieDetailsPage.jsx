@@ -31,6 +31,7 @@ const MovieDetailsPage = () => {
   const formatDate = (date) => {
     return format(new Date(date), "MMMM dd yyyy");
   };
+  const fallbackImage = "/src/img/image-not-found.jpg";
   return (
     <section>
       <Link to={backLinkHref}>
@@ -41,7 +42,11 @@ const MovieDetailsPage = () => {
       {film && (
         <div>
           <img
-            src={`https://image.tmdb.org/t/p/w500/${film.poster_path}`}
+            src={
+              film.poster_path
+                ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
+                : fallbackImage
+            }
             alt={film.original_title}
             width="350"
             height="500"
