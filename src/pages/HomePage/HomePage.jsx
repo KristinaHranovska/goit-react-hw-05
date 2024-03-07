@@ -25,11 +25,11 @@ const HomePage = () => {
   }, []);
 
   return (
-    <section>
+    <main>
       <h1>Trending today</h1>
       {loading && <Loader />}
       <MovieList filmsList={films} />
-    </section>
+    </main>
   );
 };
 

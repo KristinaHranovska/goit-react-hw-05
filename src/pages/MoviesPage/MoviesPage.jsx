@@ -11,7 +11,6 @@ const MoviesPage = () => {
   const searchQuery = searchParams.get("search");
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
-
   const [loading, setLoading] = useState(false);
 
   useEffect(() => {
@@ -47,22 +46,24 @@ const MoviesPage = () => {
   };
   return (
     <main>
-      <SearchBox onSubmit={(query) => setSearchParams({ search: query })} />
-      {loading && <Loader />}
-      <MovieList filmsList={searchResults} />
-      {searchResults.length !== 0 && (
-        <div>
-          <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-            Previous Page
-          </button>
-          <button
-            onClick={handleNextPage}
-            disabled={currentPage === totalPages}
-          >
-            Next Page
-          </button>
-        </div>
-      )}
+      <section>
+        <SearchBox onSubmit={(query) => setSearchParams({ search: query })} />
+        {loading && <Loader />}
+        {searchResults.length !== 0 && <MovieList filmsList={searchResults} />}
+        {searchResults.length !== 0 && (
+          <div>
+            <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+              Previous Page
+            </button>
+            <button
+              onClick={handleNextPage}
+              disabled={currentPage === totalPages}
+            >
+              Next Page
+            </button>
+          </div>
+        )}
+      </section>
     </main>
   );
 };

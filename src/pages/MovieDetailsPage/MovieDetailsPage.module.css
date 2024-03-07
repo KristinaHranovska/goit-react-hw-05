@@ -1,0 +1,20 @@
+.iconSpilled {
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-image: url('../../img/spilled.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+
+}
+
+.iconUpright {
+    display: block;
+    width: 48px;
+    height: 48px;
+    background-image: url('../../img/upright.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}

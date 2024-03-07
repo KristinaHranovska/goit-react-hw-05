@@ -11,6 +11,7 @@ const MovieItem = ({
   };
   const urlImg = `https://image.tmdb.org/t/p/w500/${poster_path}`;
   const fallbackImage = "/src/img/image-not-found.jpg";
+  const voteAverage = Number(vote_average).toFixed(2);
   return (
     <div>
       <img
@@ -21,7 +22,7 @@ const MovieItem = ({
       />
       <h3>{title}</h3>
       <p>Release date: {formatDate(release_date)}</p>
-      <p>Rating: {Number(vote_average).toFixed(1)}</p>
+      {voteAverage !== "0.00" && <p>Rating: {voteAverage}</p>}
     </div>
   );
 };

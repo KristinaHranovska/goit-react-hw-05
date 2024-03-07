@@ -10,6 +10,7 @@ import { Suspense, useEffect, useState } from "react";
 import { format } from "date-fns";
 import { GoArrowLeft } from "react-icons/go";
 import Loader from "../../components/Loader/Loader.jsx";
+import style from "./MovieDetailsPage.module.css";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -38,6 +39,7 @@ const MovieDetailsPage = () => {
     return format(new Date(date), "MMMM dd yyyy");
   };
   const fallbackImage = "/src/img/image-not-found.jpg";
+  const userScore = film ? (Number(film.vote_average) * 10).toFixed(0) : null;
   return (
     <section>
       <Link to={backLinkHref}>
@@ -62,6 +64,16 @@ const MovieDetailsPage = () => {
             <h2>{film.original_title}</h2>
             <p>{film.tagline}</p>
             <p>Release date: {formatDate(film.release_date)}</p>
+            {userScore !== "0" && userScore !== null && (
+              <div>
+                <p>User Score: {userScore}&#37;</p>{" "}
+                <span
+                  className={
+                    userScore < 60 ? style.iconSpilled : style.iconUpright
+                  }
+                ></span>
+              </div>
+            )}
             <h3>Overview</h3>
             <p>{film.overview}</p>
             <h3>Genres</h3>
@@ -81,7 +93,7 @@ const MovieDetailsPage = () => {
           Reviews
         </NavLink>
       </nav>
-      <Suspense fallback={<div>Loading subpage...</div>}>
+      <Suspense>
         <Outlet />
       </Suspense>
     </section>
