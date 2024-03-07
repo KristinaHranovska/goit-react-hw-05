@@ -16,8 +16,8 @@ export const getFilmsTrendingAccess = async () => {
     }
 }
 
-export const getFilmsDetails = async (id, codeWord = null) => {
-    const url = `https://api.themoviedb.org/3/movie/${id}/${codeWord}?language=en-US`
+export const getFilmsDetails = async (id, codeWord = '') => {
+    const url = `https://api.themoviedb.org/3/movie/${id}${codeWord}?language=en-US`;
     const params = {
         headers: {
             Authorization: `Bearer ${TOKEN}`
