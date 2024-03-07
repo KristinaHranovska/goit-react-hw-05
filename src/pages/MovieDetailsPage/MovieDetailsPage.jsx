@@ -9,20 +9,26 @@ import { getFilmsDetails } from "../../js/films-api.js";
 import { Suspense, useEffect, useState } from "react";
 import { format } from "date-fns";
 import { GoArrowLeft } from "react-icons/go";
+import Loader from "../../components/Loader/Loader.jsx";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
   const [film, setFilm] = useState(null);
+
+  const [loading, setLoading] = useState(false);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? "/";
 
   useEffect(() => {
     const fetchData = async () => {
       try {
+        setLoading(true);
         const dataFilm = await getFilmsDetails(id);
         setFilm(dataFilm);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -39,6 +45,7 @@ const MovieDetailsPage = () => {
           <GoArrowLeft /> Back
         </button>
       </Link>
+      {loading && <Loader />}
       {film && (
         <div>
           <img

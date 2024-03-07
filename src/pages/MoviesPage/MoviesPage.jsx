@@ -3,6 +3,7 @@ import MovieList from "../../components/MovieList/MovieList";
 import SearchBox from "../../components/SearchBox/SearchBox";
 import { getFilmsSearch } from "../../js/films-api.js";
 import { useEffect, useState } from "react";
+import Loader from "../../components/Loader/Loader.jsx";
 
 const MoviesPage = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -11,15 +12,20 @@ const MoviesPage = () => {
   const [currentPage, setCurrentPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
 
+  const [loading, setLoading] = useState(false);
+
   useEffect(() => {
     setSearchResults([]);
     const searchData = async (query, page) => {
       try {
+        setLoading(true);
         const response = await getFilmsSearch(query, page);
         setSearchResults(response.results);
         setTotalPages(response.total_pages);
       } catch (error) {
         console.log(error);
+      } finally {
+        setLoading(false);
       }
     };
 
@@ -42,6 +48,7 @@ const MoviesPage = () => {
   return (
     <main>
       <SearchBox onSubmit={(query) => setSearchParams({ search: query })} />
+      {loading && <Loader />}
       <MovieList filmsList={searchResults} />
       {searchResults.length !== 0 && (
         <div>
