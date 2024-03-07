@@ -16,8 +16,8 @@ export const getFilmsTrendingAccess = async () => {
     }
 }
 
-export const getFilmsDetails = async (id) => {
-    const url = `https://api.themoviedb.org/3/movie/${id}?language=en-US`
+export const getFilmsDetails = async (id, codeWord = null) => {
+    const url = `https://api.themoviedb.org/3/movie/${id}/${codeWord}?language=en-US`
     const params = {
         headers: {
             Authorization: `Bearer ${TOKEN}`
@@ -25,6 +25,7 @@ export const getFilmsDetails = async (id) => {
     }
     try {
         const respons = await axios.get(url, params);
+
         return respons.data;
     } catch (error) {
         console.log(error.message);
@@ -33,6 +34,7 @@ export const getFilmsDetails = async (id) => {
 
 // Trending movies  https://api.themoviedb.org/3/trending/movie/day?language=en-US
 // Search movie     https://api.themoviedb.org/3/search/movie?include_adult=false&language=en-US&page=1
+
 // Movie details    https://api.themoviedb.org/3/movie/movie_id?language=en-US
+// Movie reviews    https://api.themoviedb.org/3/movie/792307/reviews?language=en-US&page=1
 // Movie credits    https://api.themoviedb.org/3/movie/movie_id/credits?language=en-US
-// Movie reviews    https://api.themoviedb.org/3/movie/movie_id/reviews?language=en-US&page=1

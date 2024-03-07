@@ -1,6 +1,12 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import {
+  Link,
+  NavLink,
+  Outlet,
+  useLocation,
+  useParams,
+} from "react-router-dom";
 import { getFilmsDetails } from "../../js/films-api.js";
-import { useEffect, useState } from "react";
+import { Suspense, useEffect, useState } from "react";
 import { format } from "date-fns";
 import { GoArrowLeft } from "react-icons/go";
 
@@ -55,6 +61,17 @@ const MovieDetailsPage = () => {
           </div>
         </div>
       )}
+      <nav>
+        <NavLink to={"cast"} state={location.state}>
+          Cast
+        </NavLink>
+        <NavLink to={"reviews"} state={location.state}>
+          Reviews
+        </NavLink>
+      </nav>
+      <Suspense fallback={<div>Loading subpage...</div>}>
+        <Outlet />
+      </Suspense>
     </section>
   );
 };
