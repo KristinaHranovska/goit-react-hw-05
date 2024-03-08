@@ -6,7 +6,7 @@ import style from "./MovieList.module.css";
 const MovieList = ({ filmsList }) => {
   const location = useLocation();
   return (
-    <div className={style.container}>
+    <div className={style.containerList}>
       <ul className={style.filmsList}>
         {filmsList.map((film) => (
           <li key={film.id} className={style.filmItem}>

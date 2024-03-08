@@ -1,9 +1,12 @@
+.containerList {
+    padding: 0 16px;
+}
+
 .filmsList {
-    width: 1100px;
     display: flex;
+    justify-content: center;
     flex-wrap: wrap;
-    row-gap: 30px;
-    column-gap: 20px;
+    gap: 20px;
 }
 
 .filmItem {

@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import MovieList from "../../components/MovieList/MovieList";
 import { getFilmsTrendingAccess } from "../../js/films-api";
 import Loader from "../../components/Loader/Loader";
+import style from "./HomePage.module.css";
 
 const HomePage = () => {
   const [films, setFilms] = useState([]);
@@ -25,8 +26,8 @@ const HomePage = () => {
   }, []);
 
   return (
-    <main>
-      <h1>Trending today</h1>
+    <main className={style.mainSection}>
+      <h1 className={style.mainTitle}>Trending today</h1>
       {loading && <Loader />}
       <MovieList filmsList={films} />
     </main>
