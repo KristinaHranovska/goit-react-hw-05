@@ -4,6 +4,7 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import { getFilmsSearch } from "../../js/films-api.js";
 import { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader.jsx";
+import toast, { Toaster } from "react-hot-toast";
 import style from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
@@ -19,9 +20,21 @@ const MoviesPage = () => {
     const searchData = async (query, page) => {
       try {
         setLoading(true);
+
         const response = await getFilmsSearch(query, page);
         setSearchResults(response.results);
         setTotalPages(response.total_pages);
+
+        if (!response.total_results) {
+          toast(
+            "Sorry, we have not found the films for your request. Try to write it differently.",
+            {
+              duration: 5000,
+            }
+          );
+        } else {
+          toast.success(`Wow! We found ${response.total_results} films`);
+        }
       } catch (error) {
         console.log(error);
       } finally {
@@ -49,6 +62,13 @@ const MoviesPage = () => {
     <main>
       <section className={style.moviesSearch}>
         <SearchBox onSubmit={(query) => setSearchParams({ search: query })} />
+        <Toaster
+          position="top-right"
+          reverseOrder={false}
+          toastOptions={{
+            className: style.toastTextCenter,
+          }}
+        />
         {loading && <Loader />}
         {searchResults.length !== 0 && <MovieList filmsList={searchResults} />}
         {searchResults.length !== 0 && (
