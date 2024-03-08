@@ -27,12 +27,12 @@ const MovieCast = () => {
     handelClick();
   }, [id]);
   return (
-    <section>
+    <section className={style.castSection}>
       {loading && <LoaderMoreInform />}
       {credits && (
-        <ul>
+        <ul className={style.castList}>
           {credits.map((cast) => (
-            <li key={cast.id}>
+            <li className={style.castItem} key={cast.id}>
               <MovieCastItem dataCast={cast} />
             </li>
           ))}

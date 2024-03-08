@@ -1,3 +1,5 @@
+import style from "./MovieCastItem.module.css";
+
 const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
   const urlImg = `https://image.tmdb.org/t/p/w500/${profile_path}`;
   const fallbackImage = "/src/img/image-not-found.jpg";
@@ -9,9 +11,11 @@ const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
         width="200"
         height="300"
       />
-      <div>
-        <h3>{name}</h3>
-        <p>Character - {character}</p>
+      <div className={style.castItemThumb}>
+        <h3 className={style.castItemTitle}>{name}</h3>
+        <p className={style.castItemCharacter}>
+          <span className={style.castItemSpan}>Character:</span> {character}
+        </p>
       </div>
     </div>
   );
