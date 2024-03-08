@@ -24,8 +24,8 @@
     transition: background-color .4s cubic-bezier(.4, 0, .2, 1), color .4s cubic-bezier(.4, 0, .2, 1), box-shadow .4s cubic-bezier(.4, 0, .2, 1);
 }
 
-.btnBack:hover,
-.btnBack:focus {
+.btnLink:hover,
+.btnLink:focus {
     background-color: rgb(0, 70, 182);
     color: #F6F6F6;
     box-shadow: 0 1px 1px #00000024, 0 1px 3px #0000001f, 0 2px 1px #0003;
