@@ -1,11 +1,23 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
+import style from "./Navigation.module.css";
+import clsx from "clsx";
 
 const Navigation = () => {
+  const location = useLocation();
+
+  const buildLinkClass = (to) => {
+    return clsx(style.navLink, location.pathname === to && style.navLinkActive);
+  };
+
   return (
-    <header>
-      <nav>
-        <NavLink to="/">Home</NavLink>
-        <NavLink to="/movies">Movies</NavLink>
+    <header className={style.container}>
+      <nav className={style.headerNav}>
+        <NavLink className={buildLinkClass("/")} to="/">
+          Home
+        </NavLink>
+        <NavLink className={buildLinkClass("/movies")} to="/movies">
+          Movies
+        </NavLink>
       </nav>
     </header>
   );
