@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import style from "./MovieReviewsItem.module.css";
 
 const MovieReviewsItem = ({
   dataReviews: {
@@ -13,10 +14,12 @@ const MovieReviewsItem = ({
   };
   return (
     <>
-      <h2>{author}</h2>
-      <p>Username: {username}</p>
-      <p>{formatDate(created_at)}</p>
-      <p>{content}</p>
+      <h2 className={style.reviewItemTitle}>{author}</h2>
+      <p className={style.reviewItemUserName}>
+        <span className={style.reviewItemSpan}>Username</span>: {username}
+      </p>
+      <p className={style.reviewItemDate}>{formatDate(created_at)}</p>
+      <p className={style.reviewItemContent}>{content}</p>
     </>
   );
 };
