@@ -4,6 +4,7 @@ import SearchBox from "../../components/SearchBox/SearchBox";
 import { getFilmsSearch } from "../../js/films-api.js";
 import { useEffect, useState } from "react";
 import Loader from "../../components/Loader/Loader.jsx";
+import style from "./MoviesPage.module.css";
 
 const MoviesPage = () => {
   const [searchResults, setSearchResults] = useState([]);
@@ -46,16 +47,21 @@ const MoviesPage = () => {
   };
   return (
     <main>
-      <section>
+      <section className={style.moviesSearch}>
         <SearchBox onSubmit={(query) => setSearchParams({ search: query })} />
         {loading && <Loader />}
         {searchResults.length !== 0 && <MovieList filmsList={searchResults} />}
         {searchResults.length !== 0 && (
-          <div>
-            <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+          <div className={style.btnPaginationThumb}>
+            <button
+              className={style.btnPagination}
+              onClick={handlePreviousPage}
+              disabled={currentPage === 1}
+            >
               Previous Page
             </button>
             <button
+              className={style.btnPagination}
               onClick={handleNextPage}
               disabled={currentPage === totalPages}
             >
