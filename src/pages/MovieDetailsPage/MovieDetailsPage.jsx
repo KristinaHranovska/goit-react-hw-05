@@ -51,53 +51,57 @@ const MovieDetailsPage = () => {
     <section className={style.movieDetails}>
       <Link to={backLinkHref}>
         <button className={style.btnLink}>
-          <GoArrowLeft /> Back
+          <GoArrowLeft size="20" /> Back
         </button>
       </Link>
       {loading && <Loader />}
       {film && (
-        <div className={style.movieDetailsThumb}>
-          <img
-            className={style.movieDetailsImg}
-            src={
-              film.poster_path
-                ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
-                : fallbackImage
-            }
-            alt={film.original_title}
-            width="350"
-            height="500"
-          />
-          <div>
-            <h2 className={style.movieDetailsTitle}>{film.original_title}</h2>
-            <p className={style.movieDetailsTagline}>{film.tagline}</p>
-            <p className={style.movieDetailsText}>
-              <span className={style.spanAccent}>Release date:</span>{" "}
-              {formatDate(film.release_date)}
-            </p>
-            {userScore !== "0" && userScore !== null && (
-              <div className={style.movieDetailsScore}>
-                <p className={style.movieDetailsText}>
-                  <span className={style.spanAccent}>User Score:</span>{" "}
-                  {userScore}&#37;
-                </p>{" "}
-                <span
-                  className={
-                    userScore < 60 ? style.iconSpilled : style.iconUpright
-                  }
-                ></span>
-              </div>
-            )}
-            <h3 className={style.movieDetailsTitleFilm}>Overview</h3>
-            <p className={style.movieDetailsText}>{film.overview}</p>
-            <h3 className={style.movieDetailsTitleFilm}>Genres</h3>
-            <ul className={style.movieDetailsGenresList}>
-              {film.genres.map((genre) => (
-                <li className={style.movieDetailsText} key={genre.id}>
-                  {genre.name}
-                </li>
-              ))}
-            </ul>
+        <div className={style.movieDetailsSection}>
+          <div className={style.movieDetailsThumb}>
+            <img
+              className={style.movieDetailsImg}
+              src={
+                film.poster_path
+                  ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
+                  : fallbackImage
+              }
+              alt={film.original_title}
+              width="350"
+              height="500"
+            />
+            <div>
+              <h2 className={style.movieDetailsTitle}>{film.original_title}</h2>
+              <p className={style.movieDetailsTagline}>{film.tagline}</p>
+              <p className={style.movieDetailsText}>
+                <span className={style.spanAccent}>Release date:</span>{" "}
+                {formatDate(film.release_date)}
+              </p>
+              {userScore !== "0" && userScore !== null && (
+                <div className={style.movieDetailsScore}>
+                  <p className={style.movieDetailsText}>
+                    <span className={style.spanAccent}>User Score:</span>{" "}
+                    {userScore}&#37;
+                  </p>{" "}
+                  <span
+                    className={
+                      userScore < 60 ? style.iconSpilled : style.iconUpright
+                    }
+                  ></span>
+                </div>
+              )}
+              <h3 className={style.movieDetailsTitleFilm}>Overview</h3>
+              <p className={`${style.movieDetailsText} ${style.forLaptop}`}>
+                {film.overview}
+              </p>
+              <h3 className={style.movieDetailsTitleFilm}>Genres</h3>
+              <ul className={style.movieDetailsGenresList}>
+                {film.genres.map((genre) => (
+                  <li className={style.movieDetailsText} key={genre.id}>
+                    {genre.name}
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
           <nav className={style.moreInfo}>
             <NavLink
