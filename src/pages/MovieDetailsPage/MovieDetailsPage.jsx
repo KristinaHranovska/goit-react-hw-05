@@ -11,14 +11,21 @@ import { format } from "date-fns";
 import { GoArrowLeft } from "react-icons/go";
 import Loader from "../../components/Loader/Loader.jsx";
 import style from "./MovieDetailsPage.module.css";
+import clsx from "clsx";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
   const [film, setFilm] = useState(null);
-
   const [loading, setLoading] = useState(false);
   const location = useLocation();
   const backLinkHref = location.state?.from ?? "/";
+
+  const buildLinkClass = (to) => {
+    return clsx(
+      style.btnLink,
+      location.pathname === to && style.moreInfoLinkActive
+    );
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -41,16 +48,17 @@ const MovieDetailsPage = () => {
   const fallbackImage = "/src/img/image-not-found.jpg";
   const userScore = film ? (Number(film.vote_average) * 10).toFixed(0) : null;
   return (
-    <section>
+    <section className={style.movieDetails}>
       <Link to={backLinkHref}>
-        <button>
+        <button className={style.btnLink}>
           <GoArrowLeft /> Back
         </button>
       </Link>
       {loading && <Loader />}
       {film && (
-        <div>
+        <div className={style.movieDetailsThumb}>
           <img
+            className={style.movieDetailsImg}
             src={
               film.poster_path
                 ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
@@ -61,12 +69,18 @@ const MovieDetailsPage = () => {
             height="500"
           />
           <div>
-            <h2>{film.original_title}</h2>
-            <p>{film.tagline}</p>
-            <p>Release date: {formatDate(film.release_date)}</p>
+            <h2 className={style.movieDetailsTitle}>{film.original_title}</h2>
+            <p className={style.movieDetailsTagline}>{film.tagline}</p>
+            <p className={style.movieDetailsText}>
+              <span className={style.spanAccent}>Release date:</span>{" "}
+              {formatDate(film.release_date)}
+            </p>
             {userScore !== "0" && userScore !== null && (
-              <div>
-                <p>User Score: {userScore}&#37;</p>{" "}
+              <div className={style.movieDetailsScore}>
+                <p className={style.movieDetailsText}>
+                  <span className={style.spanAccent}>User Score:</span>{" "}
+                  {userScore}&#37;
+                </p>{" "}
                 <span
                   className={
                     userScore < 60 ? style.iconSpilled : style.iconUpright
@@ -74,28 +88,38 @@ const MovieDetailsPage = () => {
                 ></span>
               </div>
             )}
-            <h3>Overview</h3>
-            <p>{film.overview}</p>
-            <h3>Genres</h3>
-            <ul>
+            <h3 className={style.movieDetailsTitleFilm}>Overview</h3>
+            <p className={style.movieDetailsText}>{film.overview}</p>
+            <h3 className={style.movieDetailsTitleFilm}>Genres</h3>
+            <ul className={style.movieDetailsGenresList}>
               {film.genres.map((genre) => (
-                <li key={genre.id}>{genre.name}</li>
+                <li className={style.movieDetailsText} key={genre.id}>
+                  {genre.name}
+                </li>
               ))}
             </ul>
           </div>
+          <nav className={style.moreInfo}>
+            <NavLink
+              className={buildLinkClass(`/movies/${id}/cast`)}
+              to={"cast"}
+              state={location.state}
+            >
+              Cast
+            </NavLink>
+            <NavLink
+              className={buildLinkClass(`/movies/${id}/reviews`)}
+              to={"reviews"}
+              state={location.state}
+            >
+              Reviews
+            </NavLink>
+          </nav>
+          <Suspense>
+            <Outlet />
+          </Suspense>
         </div>
       )}
-      <nav>
-        <NavLink to={"cast"} state={location.state}>
-          Cast
-        </NavLink>
-        <NavLink to={"reviews"} state={location.state}>
-          Reviews
-        </NavLink>
-      </nav>
-      <Suspense>
-        <Outlet />
-      </Suspense>
     </section>
   );
 };
