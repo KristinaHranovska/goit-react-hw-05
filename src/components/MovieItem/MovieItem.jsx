@@ -1,4 +1,5 @@
 import { format } from "date-fns";
+import style from "./MovieItem.module.css";
 
 const MovieItem = ({
   dataFilm: { poster_path, title, release_date, vote_average },
@@ -20,9 +21,15 @@ const MovieItem = ({
         width="350"
         height="500"
       />
-      <h3>{title}</h3>
-      <p>Release date: {formatDate(release_date)}</p>
-      {voteAverage !== "0.00" && <p>Rating: {voteAverage}</p>}
+      <div className={style.trandingThumb}>
+        <h3 className={style.trandingTitle}>{title}</h3>
+        <p className={style.trandingText}>
+          Release date: {formatDate(release_date)}
+        </p>
+        {voteAverage !== "0.00" && (
+          <p className={style.trandingText}>Rating: {voteAverage}</p>
+        )}
+      </div>
     </div>
   );
 };
