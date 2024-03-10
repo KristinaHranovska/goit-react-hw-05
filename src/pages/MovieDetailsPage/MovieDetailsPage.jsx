@@ -45,7 +45,8 @@ const MovieDetailsPage = () => {
   const formatDate = (date) => {
     return format(new Date(date), "MMMM dd yyyy");
   };
-  const fallbackImage = "../../img/image-not-found.jpg";
+  const fallbackImage =
+    "https://drive.google.com/file/d/1jL9R9enSYMb6Q4ZHoa27sDgF59F-fLiO/view?usp=drive_link";
   const userScore = film ? (Number(film.vote_average) * 10).toFixed(0) : null;
   return (
     <section className={style.movieDetails}>
