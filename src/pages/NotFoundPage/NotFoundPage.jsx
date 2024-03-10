@@ -4,18 +4,12 @@ import style from "./NotFoundPage.module.css";
 const NotFoundPage = () => {
   const location = useLocation();
   const backLinkHref = location.state?.from ?? "/";
-  const notPage = { image: "../../img/not-found-page.png" };
 
   return (
     <section className={style.containerNotFound}>
       <div className={style.notFound}>
         <h1 className={style.notFoundTitle}>404</h1>
-        <img
-          className={style.notFoundImg}
-          src={notPage.image}
-          alt="404-page"
-          width="200"
-        />
+        <div className={style.notFoundImg} />
         <h2 className={style.notFoundTitleInform}>Page not found</h2>
 
         <p className={style.notFoundMessage}>
