@@ -2,7 +2,10 @@ import style from "./MovieCastItem.module.css";
 
 const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
   const urlImg = `https://image.tmdb.org/t/p/w500/${profile_path}`;
-  const fallbackImage = { image: "../../img/image-not-found.jpg" };
+  const fallbackImage = {
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhF3CnFCdt06phYZcmrKrWnzr6PjwZatM7yQ&usqp=CAU",
+  };
   return (
     <div>
       <img
