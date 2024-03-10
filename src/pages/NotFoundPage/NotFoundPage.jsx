@@ -4,15 +4,15 @@ import style from "./NotFoundPage.module.css";
 const NotFoundPage = () => {
   const location = useLocation();
   const backLinkHref = location.state?.from ?? "/";
-  const notPage =
-    "https://drive.google.com/file/d/10T35yOnudOV4lhUuqwOddFYA4qb8fczN/view?usp=drive_link";
+  // const notPage =
+  ("https://drive.google.com/file/d/10T35yOnudOV4lhUuqwOddFYA4qb8fczN/view?usp=drive_link");
   return (
     <section className={style.containerNotFound}>
       <div className={style.notFound}>
         <h1 className={style.notFoundTitle}>404</h1>
         <img
           className={style.notFoundImg}
-          src={notPage}
+          src="https://drive.google.com/file/d/10T35yOnudOV4lhUuqwOddFYA4qb8fczN/view?usp=drive_link"
           alt="404-page"
           width="200"
         />
