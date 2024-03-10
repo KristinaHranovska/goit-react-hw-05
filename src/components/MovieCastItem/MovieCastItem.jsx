@@ -6,11 +6,7 @@ const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
     <div>
       <img
         className={style.castImg}
-        src={
-          profile_path
-            ? urlImg
-            : "https://kartinki.pics/pics/uploads/posts/2022-08/1661450875_1-kartinkin-net-p-pustoi-prozrachnii-fon-krasivo-1.png"
-        }
+        src={profile_path ? urlImg : ""}
         alt={name}
         width="200"
         height="300"

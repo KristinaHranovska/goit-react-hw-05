@@ -16,11 +16,7 @@ const MovieItem = ({
     <div>
       <img
         className={style.movieImg}
-        src={
-          poster_path
-            ? urlImg
-            : "https://kartinki.pics/pics/uploads/posts/2022-08/1661450875_1-kartinkin-net-p-pustoi-prozrachnii-fon-krasivo-1.png"
-        }
+        src={poster_path ? urlImg : ""}
         alt={title}
         width="350"
         height="500"
