@@ -11,12 +11,16 @@ const MovieItem = ({
     return format(new Date(date), "MMMM dd yyyy");
   };
   const urlImg = `https://image.tmdb.org/t/p/w500/${poster_path}`;
-  const fallbackImage = "/src/img/image-not-found.jpg";
   const voteAverage = Number(vote_average).toFixed(2);
   return (
     <div>
       <img
-        src={poster_path ? urlImg : fallbackImage}
+        className={style.movieImg}
+        src={
+          poster_path
+            ? urlImg
+            : "https://kartinki.pics/pics/uploads/posts/2022-08/1661450875_1-kartinkin-net-p-pustoi-prozrachnii-fon-krasivo-1.png"
+        }
         alt={title}
         width="350"
         height="500"

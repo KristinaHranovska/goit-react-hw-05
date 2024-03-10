@@ -2,10 +2,6 @@ import style from "./MovieCastItem.module.css";
 
 const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
   const urlImg = `https://image.tmdb.org/t/p/w500/${profile_path}`;
-  // const fallbackImage = {
-  //   image:
-  //     "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg",
-  // };
   return (
     <div>
       <img
@@ -13,9 +9,8 @@ const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
         src={
           profile_path
             ? urlImg
-            : "https://img.freepik.com/premium-vector/empty-transparent-seamless-grid-vector-background-grey-and-white-squares_125869-1804.jpg"
+            : "https://kartinki.pics/pics/uploads/posts/2022-08/1661450875_1-kartinkin-net-p-pustoi-prozrachnii-fon-krasivo-1.png"
         }
-        // src={urlImg}
         alt={name}
         width="200"
         height="300"
