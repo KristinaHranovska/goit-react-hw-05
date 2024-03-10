@@ -36,7 +36,7 @@
 .iconUpright {
     display: block;
     width: 150px;
-    /* height: 35px; */
+    height: 150px;
     background-image: url('../../img/not-found-page.png');
     background-repeat: no-repeat;
     background-size: cover;
@@ -73,5 +73,6 @@
 @media screen and (min-width: 1024px) {
     .notFoundImg {
         width: 250px;
+        height: 250px;
     }
 }
