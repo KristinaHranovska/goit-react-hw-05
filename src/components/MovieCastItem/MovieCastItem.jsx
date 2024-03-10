@@ -4,7 +4,7 @@ const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
   const urlImg = `https://image.tmdb.org/t/p/w500/${profile_path}`;
   const fallbackImage = {
     image:
-      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhF3CnFCdt06phYZcmrKrWnzr6PjwZatM7yQ&usqp=CAU",
+      "https://drive.google.com/file/d/1jL9R9enSYMb6Q4ZHoa27sDgF59F-fLiO/view?usp=drive_link",
   };
   return (
     <div>
