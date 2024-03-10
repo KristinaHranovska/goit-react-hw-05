@@ -10,7 +10,11 @@ const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
     <div>
       <img
         className={style.castImg}
-        src={profile_path ? urlImg : ""}
+        src={
+          profile_path
+            ? urlImg
+            : "https://img.freepik.com/premium-vector/empty-transparent-seamless-grid-vector-background-grey-and-white-squares_125869-1804.jpg"
+        }
         // src={urlImg}
         alt={name}
         width="200"
