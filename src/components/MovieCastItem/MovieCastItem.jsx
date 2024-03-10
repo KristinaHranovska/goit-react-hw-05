@@ -9,6 +9,7 @@ const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
   return (
     <div>
       <img
+        className={style.castImg}
         src={profile_path ? urlImg : fallbackImage.image}
         alt={name}
         width="200"
