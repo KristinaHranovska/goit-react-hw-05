@@ -45,7 +45,7 @@ const MovieDetailsPage = () => {
   const formatDate = (date) => {
     return format(new Date(date), "MMMM dd yyyy");
   };
-  const fallbackImage = "../../img/not-found-page.png";
+  const fallbackImage = { image: "../../img/image-not-found.jpg" };
   const userScore = film ? (Number(film.vote_average) * 10).toFixed(0) : null;
   return (
     <section className={style.movieDetails}>
@@ -63,7 +63,7 @@ const MovieDetailsPage = () => {
               src={
                 film.poster_path
                   ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
-                  : "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS2nOnX3jYZkNuSu6R71AveTLR1Hz1ipyc7wA&usqp=CAU"
+                  : fallbackImage.image
               }
               alt={film.original_title}
               width="350"

@@ -2,11 +2,11 @@ import style from "./MovieCastItem.module.css";
 
 const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
   const urlImg = `https://image.tmdb.org/t/p/w500/${profile_path}`;
-  const fallbackImage = "../../img/image-not-found.jpg";
+  const fallbackImage = { image: "../../img/image-not-found.jpg" };
   return (
     <div>
       <img
-        src={profile_path ? urlImg : fallbackImage}
+        src={profile_path ? urlImg : fallbackImage.image}
         alt={name}
         width="200"
         height="300"
