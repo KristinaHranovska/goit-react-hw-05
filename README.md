@@ -1,8 +1,31 @@
-# React + Vite
+# CinemaPulse
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+CinemaPulse is a web application that allows users to learn about the latest trends in cinema and find desired films, series or cartoons. The project is implemented using React, using data from [The Movie Database (TMDB)](https://www.themoviedb.org/).
 
-Currently, two official plugins are available:
+## Functionality
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- On the `Home` page, the user can view today's popular movies.
+- Clicking on a movie reveals detailed information about it, including `cast` and `reviews`.
+- On the `Movies` tab, you can perform a search (find a movie, series, cartoon, etc.).
+- Implemented `pagination` for convenient viewing of search results.
+- `Notifications` are displayed when the search is empty or there are no results.
+- To improve UX, used `react-loader-spinner` to display a spinner while loading content.
+- CSS styling is implemented using modular CSS (`.module.css`).
+
+## Technologies used
+
+- HTML/CSS
+- JavaScript
+- React
+- React Router
+- Pagination
+- REST API from TMDB
+- Formik for managing forms
+- clsx for dynamic CSS classes
+- react-toast for notifications
+- react-loader-spinner to display a spinner while loading content
+
+## Link
+
+- [GitHub repository](https://github.com/KristinaHranovska/goit-react-hw-05)
+- [Live page](https://goit-react-hw-05-eight-eta.vercel.app/)
