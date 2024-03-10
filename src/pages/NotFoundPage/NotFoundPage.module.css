@@ -33,9 +33,14 @@
     margin-bottom: 20px;
 }
 
-.notFoundImg {
+.iconUpright {
+    display: block;
     width: 150px;
-    margin-bottom: 30px;
+    /* height: 35px; */
+    background-image: url('../../img/not-found-page.png');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 .notFoundMessage {

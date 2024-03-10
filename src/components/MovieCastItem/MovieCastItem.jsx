@@ -4,7 +4,7 @@ const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
   const urlImg = `https://image.tmdb.org/t/p/w500/${profile_path}`;
   const fallbackImage = {
     image:
-      "https://drive.google.com/file/d/1jL9R9enSYMb6Q4ZHoa27sDgF59F-fLiO/view?usp=drive_link",
+      "https://drive.google.com/file/d/1jL9R9enSYMb6Q4ZHoa27sDgF59F-fLiO/view?usp=drive_linkhttps://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg",
   };
   return (
     <div>
