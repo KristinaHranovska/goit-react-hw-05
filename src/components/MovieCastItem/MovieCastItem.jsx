@@ -1,4 +1,5 @@
 import style from "./MovieCastItem.module.css";
+import imgNotFound from "../../assets/img/image-not-found.jpg";
 
 const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
   const urlImg = `https://image.tmdb.org/t/p/w500/${profile_path}`;
@@ -6,7 +7,7 @@ const MovieCastItem = ({ dataCast: { profile_path, name, character } }) => {
     <div>
       <img
         className={style.castImg}
-        src={profile_path ? urlImg : ""}
+        src={profile_path ? urlImg : imgNotFound}
         alt={name}
         width="200"
         height="300"

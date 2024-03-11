@@ -12,6 +12,7 @@ import { GoArrowLeft } from "react-icons/go";
 import Loader from "../../components/Loader/Loader.jsx";
 import style from "./MovieDetailsPage.module.css";
 import clsx from "clsx";
+import notFoundImg from "../../assets/img/image-not-found.jpg";
 
 const MovieDetailsPage = () => {
   const { id } = useParams();
@@ -45,10 +46,6 @@ const MovieDetailsPage = () => {
   const formatDate = (date) => {
     return format(new Date(date), "MMMM dd yyyy");
   };
-  const fallbackImage = {
-    image:
-      "https://static.vecteezy.com/system/resources/previews/005/337/799/original/icon-image-not-found-free-vector.jpg",
-  };
   const userScore = film ? (Number(film.vote_average) * 10).toFixed(0) : null;
   return (
     <section className={style.movieDetails}>
@@ -66,7 +63,7 @@ const MovieDetailsPage = () => {
               src={
                 film.poster_path
                   ? `https://image.tmdb.org/t/p/w500/${film.poster_path}`
-                  : fallbackImage.image
+                  : notFoundImg
               }
               alt={film.original_title}
               width="350"

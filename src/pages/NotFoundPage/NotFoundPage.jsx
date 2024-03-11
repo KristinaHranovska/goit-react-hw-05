@@ -10,8 +10,12 @@ const NotFoundPage = () => {
     <section className={style.containerNotFound}>
       <div className={style.notFound}>
         <h1 className={style.notFoundTitle}>404</h1>
-        {/* <div className={style.notFoundImg} /> */}
-        <img src={notFoundPage} alt="not found page" />
+
+        <img
+          className={style.notFoundImg}
+          src={notFoundPage}
+          alt="not found page"
+        />
         <h2 className={style.notFoundTitleInform}>Page not found</h2>
 
         <p className={style.notFoundMessage}>

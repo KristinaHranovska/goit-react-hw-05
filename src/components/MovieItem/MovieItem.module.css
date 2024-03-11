@@ -27,11 +27,6 @@
 }
 
 .movieImg {
-    display: block;
     width: 350px;
     height: 500px;
-    background-image: url('../../img/image-not-found.jpg');
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
 }

@@ -77,7 +77,7 @@
     display: block;
     width: 35px;
     height: 35px;
-    background-image: url('../../img/spilled.svg');
+    background-image: url('../../assets/img/spilled.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
@@ -88,7 +88,7 @@
     display: block;
     width: 35px;
     height: 35px;
-    background-image: url('../../img/upright.svg');
+    background-image: url('../../assets/img/upright.svg');
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;

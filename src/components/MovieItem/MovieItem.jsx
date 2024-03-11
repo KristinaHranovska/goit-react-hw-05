@@ -1,5 +1,6 @@
 import { format } from "date-fns";
 import style from "./MovieItem.module.css";
+import notFoundImg from "../../assets/img/image-not-found.jpg";
 
 const MovieItem = ({
   dataFilm: { poster_path, title, release_date, vote_average },
@@ -16,7 +17,7 @@ const MovieItem = ({
     <div>
       <img
         className={style.movieImg}
-        src={poster_path ? urlImg : ""}
+        src={poster_path ? urlImg : notFoundImg}
         alt={title}
         width="350"
         height="500"
