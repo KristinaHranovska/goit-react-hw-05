@@ -33,7 +33,7 @@
     margin-bottom: 20px;
 }
 
-.notFoundImg {
+/* .notFoundImg {
     display: block;
     width: 150px;
     height: 150px;
@@ -41,7 +41,7 @@
     background-repeat: no-repeat;
     background-size: cover;
     background-position: center;
-}
+} */
 
 .notFoundMessage {
     font-size: 19px;
@@ -70,9 +70,9 @@
     box-shadow: 0 1px 1px #00000024, 0 1px 3px #0000001f, 0 2px 1px #0003;
 }
 
-@media screen and (min-width: 1024px) {
+/* @media screen and (min-width: 1024px) {
     .notFoundImg {
         width: 250px;
         height: 250px;
     }
-}
+} */
